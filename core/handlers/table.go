@@ -1,9 +1,9 @@
 package handlers
 
 import (
-	"apps/david-erp/core/models"
-	"apps/david-erp/tools"
-	"apps/david-erp/tools/types"
+	"apps/ecosystem/core/models"
+	"apps/ecosystem/tools"
+	"apps/ecosystem/tools/types"
 	"fmt"
 	"net/http"
 

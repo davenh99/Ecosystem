@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"apps/david-erp/tools"
-	"apps/david-erp/tools/types"
+	"apps/ecosystem/tools"
+	"apps/ecosystem/tools/types"
 	"net/http"
 
 	"github.com/go-chi/chi"
@@ -43,7 +43,7 @@ func (h *RecordHandler) handleGetOne(w http.ResponseWriter, r *http.Request) {
 func (h *RecordHandler) handleGetList(w http.ResponseWriter, r *http.Request) {
 	h.recordStore.SetTableName(chi.URLParam(r, "table"))
 
-	records, err := h.recordStore.GetList()
+	records, err := h.recordStore.GetList(r.Context())
 	if err != nil {
 		tools.WriteError(w, http.StatusInternalServerError, err)
 		return

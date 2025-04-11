@@ -1,10 +1,10 @@
 package auth
 
 import (
-	"apps/david-erp/tools"
-	"apps/david-erp/tools/config"
-	"apps/david-erp/tools/errors"
-	"apps/david-erp/tools/types"
+	"apps/ecosystem/tools"
+	"apps/ecosystem/tools/config"
+	"apps/ecosystem/tools/errors"
+	"apps/ecosystem/tools/types"
 	"context"
 	goErrors "errors"
 	"fmt"

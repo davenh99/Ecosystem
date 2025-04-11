@@ -1,7 +1,7 @@
 package tools
 
 import (
-	"apps/david-erp/core/models"
+	"apps/ecosystem/core/models"
 	"fmt"
 	"reflect"
 	"time"

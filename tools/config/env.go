@@ -32,7 +32,7 @@ func initConfig() Config {
 		DBUser: getEnv("DB_USER", "root"),
 		DBPassword: getEnv("DB_PASSWORD", "password"),
 		DBAddress: fmt.Sprintf("%s:%s", getEnv("DB_HOST", "127.0.0.1"), getEnv("DB_PORT", "3306")),
-		DBName: getEnv("DB_NAME", "dave_erp"),
+		DBName: getEnv("DB_NAME", "ecosystem"),
 		JWTAccessExpirationSeconds: getEnvInt("JWT_ACCESS_EXP", 3600 * 24 * 7),
 		JWTRefreshExpirationSeconds: getEnvInt("JWT_REFRESH_EXP", 3600 * 24 * 7),
 		JWTAccessSecret: getEnv("JWT_ACCESS_SECRET", "randomsecretthatmightbeabove30characterslong??hrlpm4:)"),

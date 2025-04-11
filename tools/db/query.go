@@ -1,7 +1,7 @@
 package db
 
 import (
-	"apps/david-erp/core/models"
+	"apps/ecosystem/core/models"
 	"database/sql"
 	"fmt"
 	"regexp"
@@ -437,7 +437,7 @@ func (q *QueryBuilder) build() (string, []any, error) {
     case QueryRenameTable:
         query += "RENAME TABLE " + q.table + " TO " + q.tableModel.Name
     case QueryDropTable:
-        query += "DROP TABLE " + q.table
+        query += "DROP TABLE IF EXISTS" + q.table
     // case QueryInsertTableMeta:
     //     // TODO checking if Module.String is probably not enough? check if valid? (sql.NullString.Valid)
     //     // TODO check if fields can be zero length, probably can?

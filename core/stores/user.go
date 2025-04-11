@@ -1,10 +1,14 @@
 package stores
 
 import (
-	"apps/david-erp/core/models"
-	"apps/david-erp/tools/db"
+	"apps/ecosystem/core/models"
+	"apps/ecosystem/tools/db"
+	"context"
 	"database/sql"
 	"fmt"
+
+	"github.com/stephenafamo/bob/dialect/mysql"
+	"github.com/stephenafamo/bob/dialect/mysql/sm"
 
 	"github.com/google/uuid"
 )
@@ -18,9 +22,15 @@ func NewUserStore(db *sql.DB) *UserStore {
 }
 
 // TODO add request auth params? (api rules from pocketbase)
-func (s *UserStore) GetList() ([]models.UserModel, error) {
+func (s *UserStore) GetList(ctx context.Context) ([]models.UserModel, error) {
 	// TODO add search params, filters, limit etc
-	rows, err := db.NewQueryBuilder("_users").Select().Query(s.db)
+	q, args, err := mysql.Select(sm.From("_users")).Build(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	// rows, err := db.NewQueryBuilder("_users").Select().Query(s.db)
+	rows, err := s.db.Query(q, args...)
 	if err != nil {
 		return nil, err
 	}

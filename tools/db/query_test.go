@@ -1,7 +1,7 @@
 package db
 
 import (
-	"apps/david-erp/core/models"
+	"apps/ecosystem/core/models"
 	"errors"
 	"testing"
 )

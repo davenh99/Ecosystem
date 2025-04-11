@@ -1,7 +1,7 @@
 package errors
 
 import (
-	"apps/david-erp/tools"
+	"apps/ecosystem/tools"
 	"fmt"
 	"net/http"
 )

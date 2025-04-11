@@ -1,10 +1,13 @@
 package types
 
-import "apps/david-erp/core/models"
+import (
+	"apps/ecosystem/core/models"
+	"context"
+)
 
 type BaseStore[T any] interface {
 	GetByID(id string) (*T, error)
-	GetList() ([]T, error)
+	GetList(ctx context.Context) ([]T, error)
 	Update(id string, payload map[string]any) error
 	Delete(id string) error
 }

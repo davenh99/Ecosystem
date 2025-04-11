@@ -1,8 +1,8 @@
 package api
 
 import (
-	"apps/david-erp/core/handlers"
-	"apps/david-erp/core/stores"
+	"apps/ecosystem/core/handlers"
+	"apps/ecosystem/core/stores"
 	"database/sql"
 	"log"
 	"net/http"

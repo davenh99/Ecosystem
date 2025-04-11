@@ -1,10 +1,10 @@
 package handlers
 
 import (
-	"apps/david-erp/core/models"
-	"apps/david-erp/tools"
-	"apps/david-erp/tools/auth"
-	"apps/david-erp/tools/types"
+	"apps/ecosystem/core/models"
+	"apps/ecosystem/tools"
+	"apps/ecosystem/tools/auth"
+	"apps/ecosystem/tools/types"
 	"fmt"
 	"net/http"
 
@@ -33,7 +33,7 @@ func (h *UserHandler) RegisterRoutes(router *chi.Mux) {
 }
 
 func (h *UserHandler) handleGetList(w http.ResponseWriter, r *http.Request) {
-	users, err := h.userStore.GetList()
+	users, err := h.userStore.GetList(r.Context())
 	if err != nil {
 		tools.WriteError(w, http.StatusInternalServerError, err)
 		return
@@ -144,7 +144,7 @@ func (h *UserHandler) handleRegister(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// get list of users to check if we need to init the thingy
-	users, err := h.userStore.GetList()
+	users, err := h.userStore.GetList(r.Context())
 	if err != nil {
 		tools.WriteError(w, http.StatusInternalServerError, err)
 		return

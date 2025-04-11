@@ -1,7 +1,8 @@
 package stores
 
 import (
-	"apps/david-erp/tools/db"
+	"apps/ecosystem/tools/db"
+	"context"
 	"database/sql"
 
 	"github.com/google/uuid"
@@ -23,7 +24,7 @@ func (s *RecordStore) SetTableName(name string) {
 // TODO add request auth params? (api rules from pocketbase)
 // TODO add search filters and params
 // TODO do this soon, when table is big this will return a lot of data...
-func (s *RecordStore) GetList() ([]map[string]any, error) {
+func (s *RecordStore) GetList(ctx context.Context) ([]map[string]any, error) {
 	rows, err := db.NewQueryBuilder(s.tableName).Select().Query(s.db)
 	if err != nil {
 		return nil, err

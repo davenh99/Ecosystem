@@ -1,8 +1,8 @@
 package migrations
 
 import (
-	"apps/david-erp/core/models"
-	"apps/david-erp/tools/db"
+	"apps/ecosystem/core/models"
+	"apps/ecosystem/tools/db"
 	_ "embed"
 
 	"github.com/golang-migrate/migrate/v4/source"
@@ -22,22 +22,23 @@ func GetMigrations() (*source.Migrations, error) {
 	m.Append(&source.Migration{Version: curVersion, Identifier: "v1 create _logs, _fields, _tables, tables", Direction: source.Up, Raw: db_init_up})
 	m.Append(&source.Migration{Version: curVersion, Identifier: "v1 drop _logs, _fields, _tables, tables", Direction: source.Down, Raw: db_init_down})
 
+	curVersion += 1
 	// TODO is this a bad programmatic style, passing in m and curVersion and modifying it?
 	if err := addModulesTableMigrations(m, &curVersion); err != nil {
 		return nil, err
 	}
 
-	if err := addUsersTableMigrations(m, &curVersion); err != nil {
-		return nil, err
-	}
+	// if err := addUsersTableMigrations(m, &curVersion); err != nil {
+	// 	return nil, err
+	// }
 
-	if err := addScriptsTableMigrations(m, &curVersion); err != nil {
-		return nil, err
-	}
+	// if err := addScriptsTableMigrations(m, &curVersion); err != nil {
+	// 	return nil, err
+	// }
 
-	if err := addViewsTableMigrations(m, &curVersion); err != nil {
-		return nil, err
-	}
+	// if err := addViewsTableMigrations(m, &curVersion); err != nil {
+	// 	return nil, err
+	// }
 
 	// if err := addRolesTableMigrations(m, &curVersion); err != nil {
 	// 	return nil, err
@@ -85,16 +86,16 @@ func addModulesTableMigrations(m *source.Migrations, v *uint) error  {
 	// m.Append(&source.Migration{Version: *v, Identifier: "v1 remove _modules table metadata", Direction: source.Down, Raw: query})
 	// *v += 1
 
-	query, _, err = db.NewQueryBuilder("_tables").AlterTable().CreateForeignKey(
-		&models.Field{Name: "module", ForeignKey: &models.ForeignKey{Table: "_modules", Column: "id"}},
-		).Build()
-	if err != nil {return err}
-	m.Append(&source.Migration{Version: *v, Identifier: "v1 add module fk to _tables", Direction: source.Up, Raw: query})
+	// query, _, err = db.NewQueryBuilder("_tables").AlterTable().CreateForeignKey(
+	// 	&models.Field{Name: "module", ForeignKey: &models.ForeignKey{Table: "_modules", Column: "id"}},
+	// 	).Build()
+	// if err != nil {return err}
+	// m.Append(&source.Migration{Version: *v, Identifier: "v1 add module fk to _tables", Direction: source.Up, Raw: query})
 
-	query, _, err = db.NewQueryBuilder("_tables").AlterTable().DropConstraint("fk_module__modules").Build()
-	if err != nil {return err}
-	m.Append(&source.Migration{Version: *v, Identifier: "v1 drop module fk to _tables", Direction: source.Down, Raw: query})
-	*v += 1
+	// query, _, err = db.NewQueryBuilder("_tables").AlterTable().DropConstraint("fk_module__modules").Build()
+	// if err != nil {return err}
+	// m.Append(&source.Migration{Version: *v, Identifier: "v1 drop module fk to _tables", Direction: source.Down, Raw: query})
+	// *v += 1
 
 	// TODO add foreign key to fields table as well
 

@@ -1,6 +1,6 @@
 package types
 
-import "apps/david-erp/core/models"
+import "apps/ecosystem/core/models"
 
 type UserRegisterPayload struct {
 	FirstName string `json:"firstName" validate:"required"`

@@ -1,9 +1,10 @@
 package handlers
 
 import (
-	"apps/david-erp/core/models"
-	"apps/david-erp/tools/types"
+	"apps/ecosystem/core/models"
+	"apps/ecosystem/tools/types"
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -95,7 +96,7 @@ func (m *mockUserStore) GetByID(id string) (*models.UserModel, error) {
 func (m *mockUserStore) Create(models.AuthModel) (string, error) {
 	return "", nil
 }
-func (m *mockUserStore) GetList() ([]models.UserModel, error) {
+func (m *mockUserStore) GetList(ctx context.Context) ([]models.UserModel, error) {
 	return []models.UserModel{}, nil
 }
 func (m *mockUserStore) Update(string, map[string]any) error {
@@ -113,7 +114,7 @@ func (m *mockRoleStore) GetByID(id string) (*models.RoleModel, error) {
 func (m *mockRoleStore) Create(models.RoleModel) (string, error) {
 	return "", nil
 }
-func (m *mockRoleStore) GetList() ([]models.RoleModel, error) {
+func (m *mockRoleStore) GetList(ctx context.Context) ([]models.RoleModel, error) {
 	return []models.RoleModel{}, nil
 }
 func (m *mockRoleStore) Update(string, map[string]any) error {

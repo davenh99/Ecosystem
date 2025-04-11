@@ -1,10 +1,10 @@
 package main
 
 import (
-	"apps/david-erp/cmd/api"
-	"apps/david-erp/core/migrations"
-	"apps/david-erp/tools/config"
-	"apps/david-erp/tools/db"
+	"apps/ecosystem/cmd/api"
+	"apps/ecosystem/core/migrations"
+	"apps/ecosystem/tools/config"
+	"apps/ecosystem/tools/db"
 	"database/sql"
 	"log"
 

@@ -1,8 +1,8 @@
 package stores
 
 import (
-	"apps/david-erp/core/models"
-	"apps/david-erp/tools/db"
+	"apps/ecosystem/core/models"
+	"apps/ecosystem/tools/db"
 	"database/sql"
 	"encoding/json"
 	"fmt"
@@ -127,11 +127,11 @@ func (s *TableStore) Create(payload models.TableModel) (string, error) {
 	
 	// then, update tables table
 	id := uuid.New()
-	payload.Id = id.String()
-	_, err = db.NewQueryBuilder(s.tableName).InsertTableMeta(&payload).Exec(s.db)
-	if err != nil {
-		return "", err
-	}
+	// payload.Id = id.String()
+	// _, err = db.NewQueryBuilder(s.tableName).InsertTableMeta(&payload).Exec(s.db)
+	// if err != nil {
+	// 	return "", err
+	// }
 
 	// make a migration? or leave up to modules?
 
@@ -236,10 +236,10 @@ func (s *TableStore) Delete() error {
 	}
 	
 	// then, delete from tables table
-	_, err = db.NewQueryBuilder(s.tableName).DeleteTableMeta().Exec(s.db)
-	if err != nil {
-		return err
-	}
+	// _, err = db.NewQueryBuilder(s.tableName).DeleteTableMeta().Exec(s.db)
+	// if err != nil {
+	// 	return err
+	// }
 
 	// make a migration? or leave up to modules?
 

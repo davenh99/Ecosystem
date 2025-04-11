@@ -1,8 +1,9 @@
 package stores
 
 import (
-	"apps/david-erp/core/models"
-	"apps/david-erp/tools/db"
+	"apps/ecosystem/core/models"
+	"apps/ecosystem/tools/db"
+	"context"
 	"database/sql"
 	"fmt"
 
@@ -17,7 +18,7 @@ func NewRoleStore(db *sql.DB) *RoleStore {
 	return &RoleStore{db}
 }
 
-func (s *RoleStore) GetList() ([]models.RoleModel, error) {
+func (s *RoleStore) GetList(ctx context.Context) ([]models.RoleModel, error) {
 	rows, err := db.NewQueryBuilder("_roles").Select().Query(s.db)
 	if err != nil {
 		return nil, err

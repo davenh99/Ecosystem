@@ -1,15 +1,12 @@
 build:
-	@go build -o bin/david-erp-backend cmd/main.go
+	@go build -o bin/ecosystem cmd/main.go
 
 test:
 	@go test -v ./...
 
 run: build
-	@./bin/david-erp-backend
+	@./bin/ecosystem
 	# @npm run dev --prefix ui/
-
-migration:
-	@migrate create -ext sql -dir cmd/migrate/migrations $(filter-out $@, $(MAKECMDGOALS))
 
 # change the below two to use the ./backend migrate or something?
 migrate-up:

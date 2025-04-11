@@ -1,7 +1,7 @@
 package auth
 
 import (
-	"apps/david-erp/tools/config"
+	"apps/ecosystem/tools/config"
 
 	"github.com/golang-jwt/jwt/v5"
 )
