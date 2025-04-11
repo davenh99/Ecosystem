@@ -1,3 +1,12 @@
-# ecosystem
-ERP system
-goofy ahh erp system that I probably won't finish
+## ecosystem
+goofy ahh ERP system which I probably won't finish
+
+to start database:
+
+make run
+
+to start ui:
+
+cd ui
+npm run dev
+

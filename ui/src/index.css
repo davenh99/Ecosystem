@@ -1,0 +1,71 @@
+:root {
+  font-family: "Ubuntu", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: light dark;
+  background-color: var(--scheme-light);
+  color: var(--scheme-dark);
+
+  --scheme-dark: #0f0306;
+  --scheme-dark-2: #20232f;
+  --scheme-light: #edede9;
+  --scheme-primary: #b29ca2;
+  --scheme-strong: #43366e;
+  --scheme-strong-2: #6a994e;
+  --scheme-soft: #c9c3de;
+  --scheme-danger: #f00;
+  --scheme-success: #0f0;
+
+  --icon-xs: 1rem;
+  --icon-sm: 1.8rem;
+  --icon-md: 2.8rem;
+  --icon-lg: 3.8rem;
+  --icon-xl: 5rem;
+
+  font-size: 16px;
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: var(--scheme-light);
+    background-color: var(--scheme-dark-2);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+div {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+h4 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
