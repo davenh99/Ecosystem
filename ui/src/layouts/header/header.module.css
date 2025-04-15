@@ -1,0 +1,17 @@
+.header-content {
+  background-color: var(--scheme-strong-2);
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-content-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-links {
+  padding-left: 1rem;
+  text-transform: uppercase;
+}

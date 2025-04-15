@@ -1,0 +1,15 @@
+.profile {
+  border-radius: 10rem;
+  background-color: var(--scheme-soft);
+  width: var(--icon-md);
+  height: var(--icon-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-text {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--scheme-strong);
+}
